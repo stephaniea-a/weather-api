@@ -54,7 +54,7 @@ describe WeatherApi do
 			expect(@city_name_result["coord"].keys[1]).to eq("lat")
 		end
 
-		it "should return a hash of results for key - weather" do
+		it "should return a hash of results for key: weather" do
 			expect(@city_name_result["weather"]).to be_kind_of(Array)
 		end
 
@@ -85,6 +85,47 @@ describe WeatherApi do
 		it "the weather array should contain a key called icon with data type string" do
 			expect(@city_name_result["weather"][0]).to include("icon")
 			expect(@city_name_result["weather"][0].keys[3].class).to be(String) 
+		end
+
+		it "should have a key called base" do
+			expect(@city_name_result).to have_key("base")
+
+		end
+
+		it "base should have a value called stations" do
+			expect(@city_name_result["base"]).to eq("stations")
+		end
+
+		it "should have a key called visibility" do
+			expect(@city_name_result).to have_key("visibility")
+		end
+
+		it "visibility key should have a value equal to 10000" do
+			expect(@city_name_result["visibility"]).to eq(10000)
+		end
+
+		it "should have a key called id" do
+			expect(@city_name_result).to have_key("id")
+		end
+
+		it "id key should have a value of type integer " do
+			expect(@city_name_result["id"].class).to be(Fixnum)
+		end
+
+		it "should have a key called name" do
+			expect(@city_name_result).to have_key("name")
+		end
+
+		it "name key should have a value of type string" do
+			expect(@city_name_result["name"].class).to be(String) 
+		end
+
+		it "should have a key called cod" do
+			expect(@city_name_result).to have_key("cod")
+		end
+
+		it "cod " do
+			expect(@city_name_result["name"].class).to be(String)
 		end
 
 	end
